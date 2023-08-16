@@ -7,21 +7,25 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
         }
 
         .container {
             text-align: center;
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 400px;
         }
 
         h1 {
@@ -33,6 +37,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            margin-top: 20px;
         }
 
         .btn {
@@ -57,30 +62,31 @@
         .btn:hover {
             background-color: #555;
         }
-
-        @media (max-width: 480px) {
-            .container {
-                width: 80%;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Vui lòng chọn Game</h1>
         <div class="buttons">
-             <button class="btn btn-long" onclick="redirectToTienLong()">Nhận Code Thiên Long</button>
-            <button class="btn btn-phi-doi" onclick="redirectToPhiDoi()">Nhận Code Phi Đội</button>
+            <a href="https://www.facebook.com/TLBBThienKiem" target="_blank">
+                <button class="btn btn-long">Liên hệ nhận Code Thiên Long</button>
+            </a>
+            <a href="https://www.facebook.com/page.dream.ace.community" target="_blank">
+                <button class="btn btn-phi-doi">Liên hệ nhận Code Phi Đội</button>
+            </a>
         </div>
-        <script>
-        function redirectToTienLong() {
-            window.location.href = 'https://www.facebook.com/TLBBThienKiem';
-        }
+    </div>
 
-        function redirectToPhiDoi() {
-            window.location.href = 'https://www.facebook.com/page.dream.ace.community';
+    <script>
+        document.addEventListener("mousemove", parallax);
+        function parallax(e) {
+            this.querySelectorAll('.btn').forEach(button => {
+                const speed = button.getAttribute('data-speed');
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerHeight - e.pageY * speed) / 100;
+                button.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
         }
     </script>
-    </div>
 </body>
 </html>
