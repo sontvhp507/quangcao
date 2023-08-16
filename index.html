@@ -1,1 +1,86 @@
-Hi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vui lòng chọn Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-long {
+            background-color: #ff9900;
+            color: #fff;
+        }
+
+        .btn-phi-doi {
+            background-color: #0077ff;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vui lòng chọn Game</h1>
+        <div class="buttons">
+             <button class="btn btn-long" onclick="redirectToTienLong()">Nhận Code Thiên Long</button>
+            <button class="btn btn-phi-doi" onclick="redirectToPhiDoi()">Nhận Code Phi Đội</button>
+        </div>
+        <script>
+        function redirectToTienLong() {
+            window.location.href = 'https://example.com/tien-long';
+        }
+
+        function redirectToPhiDoi() {
+            window.location.href = 'https://example.com/phi-doi';
+        }
+    </script>
+    </div>
+</body>
+</html>
